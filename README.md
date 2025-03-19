@@ -66,13 +66,12 @@ abrirá expo go y ejecutara el proyecto en modo desarrollador. Mas de un disposi
 - Crearse una cuenta en Expo: https://expo.dev/signup
 
 ### Pasos de Compilación
-
+Asegúrese de estar dentro de la carpeta `src` en su consola, ejecute y siga las instrucciones en pantalla:
 1. **Iniciar sesión en Expo**
    ```bash
    eas login
    ```
 2. **Configuración de compilación**
-   Asegúrese de estar dentro de la carpeta `src` en su consola y ejecute:
    ```bash
    eas build:configure
    ```
