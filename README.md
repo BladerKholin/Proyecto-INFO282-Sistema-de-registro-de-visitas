@@ -54,5 +54,43 @@ abrirá expo go y ejecutara el proyecto en modo desarrollador. Mas de un disposi
 
 ---
 
+## 🔧 Compilar como Desarrollador
+
+### Requisitos
+
+- Node.js: https://nodejs.org/en/
+- Expo Application Services (EAS CLI):
+  ```bash
+  npm install -g eas-cli
+  ```
+- Crearse una cuenta en Expo: https://expo.dev/signup
+
+### Pasos de Compilación
+
+1. **Iniciar sesión en Expo**
+   ```bash
+   eas login
+   ```
+2. **Configuración de compilación**
+   Asegúrese de estar dentro de la carpeta `src` en su consola y ejecute:
+   ```bash
+   eas build:configure
+   ```
+3. **Compilar la aplicación**
+   - Para iOS:
+     ```bash
+     eas build -p ios --profile production
+     ```
+   - Para Android:
+     ```bash
+     eas build -p android --profile production
+     ```
+
+Una vez terminado el proceso, la APK estará disponible para su descarga desde su perfil de Expo o el enlace que aparecerá en la consola.
+
+> **Nota:** Tener en cuenta que iOS no permite la instalación de programas externos sin autorización. Para instalar en Android, siga las instrucciones presentes en el manual de usuario.
+
+---
+
 ## 📜 Licencia
 Este proyecto está bajo la licencia Apache License 2.0. Puedes ver más detalles sobre la licencia en el archivo LICENSE.
