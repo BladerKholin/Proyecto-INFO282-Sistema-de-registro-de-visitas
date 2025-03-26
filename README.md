@@ -40,20 +40,21 @@ A continuación, se proporcionará la información necesaria para ejecutar el pr
    ```bash
    git clone https://github.com/Kumblesoft/Proyecto-INFO282-Sistema-de-registro-de-visitas.git
    ```
-4. Instalar node.js para la ejecucion del proyecto: https://nodejs.org/en/
-5. Instalar Bun para la gestion de paquetes: https://bun.sh/docs/installation#installing
-6. Descargar expoGo en un dispositivo movil IOS o Android desde la correspondiente tienda de aplicaciones.
-7. Crearse una cuenta en Expo: https://expo.dev/signup
+4. Instalar [node.js](https://nodejs.org/en/) para la ejecucion del proyecto: https://nodejs.org/en/
+5. Instalar [Bun](https://bun.sh/docs/installation#installing) para la gestion de paquetes: https://bun.sh/docs/installation#installing
+6. Descargar "expo Go" en un dispositivo movil IOS o Android desde la correspondiente tienda de aplicaciones.
+7. Crear una cuenta en [Expo](https://expo.dev/signup), se pedirá al ejecutar el servidor: https://expo.dev/signup
 
-Para ejecutar, solo hay que moverse al directorio src y ejecutar lo siguiente:
+[!NOTE] 
+> Ambos dispositivos necesitan encontrarse en la misma red para comunicar expo Go con el servidor.
+
+Para ejecutar, solo hay que moverse al directorio src y ejecutar lo siguiente, para INSTALAR LAS DEPENDENCIAS Y EJECUTAR:
 ```bash
 bun install
 bun start
 ```
-Si se solicita EAS LOGIN, deberá utilizar una cuenta de expo, la puede crear en el siguiente enlace: https://expo.dev/signup.
 
-De esa manera, el terminal ejecutará expo start y mostrará un codigo QR el cual al escanearlo desde un dispositivo movil,
-abrirá expo go y ejecutara el proyecto en modo desarrollador. Mas de un dispositivo puede abrir el proyecto simultaneamente.
+Ahora, los dispositivos con expo Go en la misma red pueden escanear el código QR generado en el servidor para visualizar la aplicación en modo desarrollador.
 
 ---
 
