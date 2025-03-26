@@ -45,7 +45,7 @@ A continuación, se proporcionará la información necesaria para ejecutar el pr
 6. Descargar "expo Go" en un dispositivo movil IOS o Android desde la correspondiente tienda de aplicaciones.
 7. Crear una cuenta en [Expo](https://expo.dev/signup), se pedirá al ejecutar el servidor: https://expo.dev/signup
 
-[!NOTE] 
+> [!NOTE] 
 > Ambos dispositivos necesitan encontrarse en la misma red para comunicar expo Go con el servidor.
 
 Para ejecutar, solo hay que moverse al directorio src y ejecutar lo siguiente, para INSTALAR LAS DEPENDENCIAS Y EJECUTAR:
