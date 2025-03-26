@@ -45,16 +45,16 @@ A continuación, se proporcionará la información necesaria para ejecutar el pr
 6. Descargar "expo Go" en un dispositivo movil IOS o Android desde la correspondiente tienda de aplicaciones.
 7. Crear una cuenta en [Expo](https://expo.dev/signup), se pedirá al ejecutar el servidor: https://expo.dev/signup
 
-> [!NOTE] 
-> Ambos dispositivos necesitan encontrarse en la misma red para comunicar expo Go con el servidor.
-
-Para ejecutar, solo hay que moverse al directorio src y ejecutar lo siguiente, para INSTALAR LAS DEPENDENCIAS Y EJECUTAR:
+8. Para ejecutar, solo hay que moverse al directorio src y ejecutar lo siguiente, para **INSTALAR LAS DEPENDENCIAS Y EJECUTAR**:
 ```bash
 bun install
 bun start
 ```
 
-Ahora, los dispositivos con expo Go en la misma red pueden escanear el código QR generado en el servidor para visualizar la aplicación en modo desarrollador.
+9. Ahora, los dispositivos con expo Go en la misma red pueden **ESCANEAR EN EXPO GO EL CODIGO QR** generado en el servidor para visualizar la aplicación en modo desarrollador.
+
+> [!NOTE] 
+> En el paso 9, ambos dispositivos necesitan encontrarse en la misma red para comunicar expo Go con el servidor.
 
 ---
 
