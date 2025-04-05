@@ -26,7 +26,6 @@ tests = [TestTexboxMayus]
 def main():
     
     ### Load environment variables
-    
     WEBDRIVER_REMOTE_URL = os.getenv('WEBDRIVER_REMOTE_URL')
     if WEBDRIVER_REMOTE_URL is None:
         print("WEBDRIVER_REMOTE_URL not found in environment variables")

@@ -54,6 +54,11 @@ class TestCaseInterface:
             f"Failed [id]: {[ r["id"] for r in results if not r["success"]]}"
         )
 
+    def get_name(self):
+        raise NotImplementedError("Subclasses should implement get_name method")
+    
+    def get_description(self):
+        raise NotImplementedError("Subclasses should implement get_description method")
 
     def wait_and_find(self, by, value, timeout=5):
         return wait_and_find(self.driver, by, value, timeout)
