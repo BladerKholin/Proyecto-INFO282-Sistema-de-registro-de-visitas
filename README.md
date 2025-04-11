@@ -6,6 +6,8 @@ A continuación, se proporcionará la información necesaria para ejecutar el pr
 
 ---
 
+Toda la informacion respecto a las pruebas y documentación desarrollada en INFO290-Metodos y modelos para la ingeniería de software está en: [INFO290 - documentacion](https://github.com/Kumblesoft/Proyecto-INFO282-Sistema-de-registro-de-visitas/INFO290-docs)
+
 ## 🚀 Ejecutar como Usuario
 
 ### Android
