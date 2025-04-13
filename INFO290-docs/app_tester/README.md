@@ -1,3 +1,12 @@
+### Crear pruebas:
+En la ultima version, main.py permite ejecutar pruebas paso a paso, permitiendo desacoplar la iniciación del socket de las pruebas en si.
+Para escribir una prueba, se debe escribir una clase que implemente los metodos definidos en la interfaz de [casos de prueba](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/TestCases/TestCaseInterface.py) y agregarlo al arreglo de casos de pruebas del main.py.
+Respecto a las configuraciónes de entorno, se proporciona un archivo de configuración .env para facilitar su uso.
+Para ejecutar, simplemente ejecutar main.py desde la carpeta app_tester como se muestra a continuación.
+```python
+python main.py
+```
+
 ### Instalación y configuración para pruebas automatizadas con Appium
 
 #### 1. Instalar Android SDK (con Java)
@@ -25,7 +34,7 @@ npx appium --use-drivers=uiautomator2
 **Nota:** Este comando asume que tienes Appium instalado globalmente o que estás utilizando `npx` para ejecutarlo directamente desde tu proyecto.
 
 #### 4. Programa de prueba para automatizar una aplicación Android
-El siguiente script de Python utiliza Appium para conectarse al emulador y realizar pruebas automatizadas en una aplicación Android. Asegúrate de ajustar las rutas y configuraciones según tu entorno.
+El siguiente script de ejemplo de Python utiliza Appium para conectarse al emulador y realizar pruebas automatizadas en una aplicación Android. Deben ajustarse las rutas y configuraciones según su entorno.
 
 ```python
 from appium import webdriver
