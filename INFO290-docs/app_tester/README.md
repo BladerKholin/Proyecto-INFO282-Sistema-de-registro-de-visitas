@@ -1,12 +1,16 @@
-### Crear pruebas:
+### Crear y ejecutar pruebas:
 En la ultima version, main.py permite ejecutar pruebas paso a paso, permitiendo desacoplar la iniciación del socket de las pruebas en si.
 Para escribir una prueba, se debe escribir una clase que implemente los metodos definidos en la interfaz de [casos de prueba](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/TestCases/TestCaseInterface.py) y agregarlo al arreglo de casos de pruebas del main.py.
+
 Respecto a las configuraciónes de entorno, se proporciona un archivo de configuración .env para facilitar su uso.
+
 Para ejecutar, simplemente ejecutar main.py desde la carpeta app_tester como se muestra a continuación.
-```python
+```powershell
 python main.py
 ```
 
+
+# El resto del readme sirve para entender los requisitos previos a la ejecucion de las pruebas sin necesidad de un dispositivo externo.
 ### Instalación y configuración para pruebas automatizadas con Appium
 
 #### 1. Instalar Android SDK (con Java)
