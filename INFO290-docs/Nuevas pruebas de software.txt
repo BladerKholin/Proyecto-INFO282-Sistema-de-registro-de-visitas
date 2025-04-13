@@ -1,0 +1,10 @@
+Este enlace muestra un nuevo documento para ver los nuevos 4 casos de pruebas y su resultado luego de ejecutarlos manualmente.
+
+Enlace de acceso:
+  https://docs.google.com/spreadsheets/d/1ZqhOk7j3f00WU_UUf9F9Scl9bj6x7BUmr0a6Dq8mL6I/edit?usp=sharing
+
+Ejemplo de ejecución (software de pruebas antiguo):
+  https://drive.google.com/file/d/1PRabIMa2BzyQrrGjBSVxp2GSw2kpmQFG/view?usp=sharing
+A diferencia del antiguo, para definir las pruebas ahora solo hay que programarlas respetando la interfaz, es decir, debe tener al menos una funcion
+para el nombre, descripción, setup, run, teardown y una para imprimir los resultados, pues el nuevo programa se encarga de ejecutarla y capturar los 
+errores parte por parte.
