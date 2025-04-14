@@ -4,13 +4,20 @@ Para escribir una prueba, se debe escribir una clase que implemente los metodos 
 
 Respecto a las configuraciónes de entorno, se proporciona un archivo de configuración .env para facilitar su uso.
 
+Actualmente, hay dos pruebas automatizadas, siendo la segunda la que usa las mejoras descritas.</br>
+**Prueba 1:** [No funcional - Se pueden crear al menos 15 formularios](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/old/crear_formularios.py)</br>
+**Prueba 2:** [Funcional - Se colocan los textos en mayusculas con el filtro activado](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/TestCases/TestTextboxMayus/TestTexboxMayus.py)</br>
+El primer caso se debe ejecutar independientemente, ya que no usa el nuevo software.
+
 Para ejecutar, simplemente ejecutar main.py desde la carpeta app_tester como se muestra a continuación.
 ```powershell
 python main.py
 ```
 
+-------------------------------------------------------------------------------------------------------------------------------------
 
-# El resto del readme sirve para entender los requisitos previos a la ejecucion de las pruebas sin necesidad de un dispositivo externo.
+El resto del readme sirve para entender los requisitos previos a la ejecucion de las pruebas sin necesidad de un dispositivo externo.
+
 ### Instalación y configuración para pruebas automatizadas con Appium
 
 #### 1. Instalar Android SDK (con Java)
