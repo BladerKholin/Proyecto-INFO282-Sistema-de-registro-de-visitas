@@ -8,6 +8,7 @@ Actualmente, hay dos pruebas automatizadas, siendo la segunda la que usa las mej
 - **Prueba 1:** [No funcional - Se pueden crear al menos 15 formularios](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/old/crear_formularios.py)</br>
 - **Prueba 2:** [Funcional - Se colocan los textos en mayusculas con el filtro activado](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/blob/prod/INFO290-docs/app_tester/TestCases/TestTextboxMayus/TestTexboxMayus.py)</br>
 El primer caso se debe ejecutar independientemente, ya que no usa el nuevo software.
+Un ejemplo de ejecución de las pruebas (Prueba 1), se encuentra visible en [este enlace.](https://drive.google.com/file/d/1PRabIMa2BzyQrrGjBSVxp2GSw2kpmQFG/view?usp=sharing)
 
 Para ejecutar, simplemente ejecutar main.py desde la carpeta app_tester como se muestra a continuación.
 ```powershell
