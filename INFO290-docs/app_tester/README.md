@@ -44,7 +44,7 @@ npx appium --use-drivers=uiautomator2
 
 **Nota:** Este comando asume que tienes Appium instalado globalmente o que estás utilizando `npx` para ejecutarlo directamente desde tu proyecto.
 
-#### 4. Programa de prueba para automatizar una aplicación Android
+#### 4. Programa de prueba para automatizar una aplicación Android (comprobación opcional)
 El siguiente script de ejemplo de Python utiliza Appium para conectarse al emulador y realizar pruebas automatizadas en una aplicación Android. Deben ajustarse las rutas y configuraciones según su entorno.
 
 ```python
