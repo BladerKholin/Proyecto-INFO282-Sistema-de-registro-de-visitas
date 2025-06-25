@@ -367,195 +367,312 @@ const SavedForms = () => {
     }
 
     return (
-        <>
-            <SafeAreaView style={styles.safeArea}>
-                <LinearGradient colors={['#2dafb9', '#17b2b6', '#00b4b2', '#00b7ad', '#00b9a7', '#00bba0', '#00bd98', '#00bf8f', '#00c185', '#00c27b']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                    <TopNavigation
-                        title={renderTitle}
-                        style={styles.topNavigation}
-                        accessoryLeft={BackAction}
-                        accessoryRight={optionBar}
-                        alignment='center'
-                    />
-                </LinearGradient>
-            </SafeAreaView>
+      <>
+        <SafeAreaView style={styles.safeArea}>
+          <LinearGradient
+            colors={[
+              "#2dafb9",
+              "#17b2b6",
+              "#00b4b2",
+              "#00b7ad",
+              "#00b9a7",
+              "#00bba0",
+              "#00bd98",
+              "#00bf8f",
+              "#00c185",
+              "#00c27b",
+            ]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <TopNavigation
+              title={renderTitle}
+              style={styles.topNavigation}
+              accessoryLeft={BackAction}
+              accessoryRight={optionBar}
+              alignment="center"
+            />
+          </LinearGradient>
+        </SafeAreaView>
 
-            <View style={styles.container}>
-                <Layout style={{ alignItems: 'flex-end', backgroundColor: '#f2f2f2' }}>
-                    {isFilterVisible && (
-                        <Modal
-                            visible={isFilterVisible}
-                            onBackdropPress={() => setFilterVisible(false)}
-                            style={styles.filterWindowModal}
-                            animationType='slide'
-                        >
-                            <Card disabled={true} style={{ width: width, borderRadius: 10 }}>
-                                <Menu>
-                                    {filters.map((item, index) => (
-                                        item && item.value ? (
-                                            <MenuItem
-                                                key={item.value}
-                                                title={item.value}
-                                                onPress={() => {
-                                                    setFilterVisible(false)
-                                                    handleFilter({ row: index })
-                                                }} 
-                                            />
-                                        ) : null
-                                    ))}
-                                </Menu>
-                                <Button onPress={() => setFilterVisible(false)}>
-                                    <Text>
-                                        Cerrar
-                                    </Text>
-                                </Button>
-                            </Card>
-                        </Modal>
-                    )}
-
-                    {isRangeMode?
-                        <Layout style={{flexDirection: 'row', alignItems: 'center', maxWidth: '90%', justifyContent: 'center', backgroundColor:'#f3f3f3', paddingEnd: '10%'}}>
-                            <TouchableOpacity onPress={() => setRangeModal(true)} style={styles.buttonDateStyle}>
-                                <Layout >
-                                    <Text style={styles.textDateStyle}>
-                                        {'Inicio: ' + (range.startDate ? configuredDateService.format(range.startDate) : '-') + ', Final: ' + (range.endDate ? configuredDateService.format(range.endDate) : '-')}
-                                    </Text>
-                                </Layout>
-                            </TouchableOpacity>
-                            <Button appearance='ghost' accessoryRight={closeIcon} onPress={() => {setIsRangeMode(false) 
-                                setRange({}) 
-                                setForms(baseForms)}}/>
-                        </Layout> : <></>
-                    }
-                    {isLastsMode ? 
-                    <Layout style={{flexDirection: 'row', alignItems: 'center', maxWidth: '90%', justifyContent: 'center', backgroundColor:'#f3f3f3', paddingEnd: '10%'}}>
-                        <Input placeholder='¿Cuantas respuestas desea?' value={lasts} onChangeText={nextValue => {setLasts(nextValue)}} style={{width : '100%'}} keyboardType='numeric' />
-                        <Button appearance='ghost' accessoryRight={closeIcon} onPress={() => (setIsLastsMode(false), setLasts(null))}/>
-                    </Layout>: <></>}
-                </Layout>
-                {lasts != 0 ? <FlatList
-                    data={Object.keys(groupedForms)}
-                    renderItem={renderTypeItem}
-                    keyExtractor={item => item.toString()}
-                    contentContainerStyle={styles.listContainer}
-                /> : <></>}
-                <Modal visible={rangeModal} backdropStyle={styles.backdrop}>
-                    <Layout style={styles.containerCalendar}>
-                        <RangeCalendar range={range} onSelect={nextrange => setRange(nextrange)} />
-                        <View style={styles.buttonRangeContainer}>
-                            <Button style={{ marginRight: "3%" }} status='info' onPress={() => (setRangeModal(false))}>
-                                <Text>Volver</Text>
-                            </Button>
-                            <Button style={{ marginLeft: "3%" }}
-                                onPress={() => {
-                                    setRangeModal(false)
-                                    setIsRangeMode(true)
-                                    handleRange()
-                                }}>
-                                <Text>
-                                    Confirmar
-                                </Text>
-                            </Button>
-                        </View>
-                    </Layout>
-                </Modal>
-                <Modal visible={confirmDelete[0]} backdropStyle={styles.backdrop}>
-                    {renderDeleteModal()}
-                </Modal>
-
-
-                {isSelectionMode && (
-                    <Layout style={styles.buttonContainer}>
-                        <Button
-                        status='danger'
-                        style={styles.deleteButton}
-                        onPress={() => setConfirmDelete([true, false])}
-                        accessoryLeft={deleteIcon}
-                        disabled={selectedForms.length === 0}
-                        >
-                            <Text style={styles.buttonText}>Eliminar</Text>
-                        </Button>
-                        <Button
-                        status='info'
-                        style={styles.shareButton}
-                        accessoryLeft={shareIcon}
-                        onPress={() => exportForm(forms.filter(form => selectedForms.includes(form.fecha)))}
-                        disabled={selectedForms.length === 0}
-                        >
-                            <Text style={styles.buttonText}>Compartir</Text>
-                        </Button>
-                    </Layout>
-                    )}
-                
-                {isSelectionMode && (
-                    <View style={styles.buttonContainer}>
-                        <Button
-                        onPress={deselectAll}
-                        accessoryLeft={ClearSelectionIcon}
-                        style={styles.selectionButton}
-                        disabled={selectedForms.length === 0}
-                        >
-                            <Text style={styles.buttonText}>Limpiar selección</Text>
-                        </Button>
-                        <Button
-                        status='warning'
-                        onPress={selectAll}
-                        style={styles.selectAllButton}
-                        accessoryLeft={SelectAllIcon}
-                        disabled={selectedForms.length === forms.length}
-                        >
-                            <Text style={styles.buttonText}>Seleccionar todo</Text>
-                        </Button>
-                    </View>
-                )}
-
-
-                <Modal
-                    visible={modalVisible}
-                    transparent={true}
-                    onRequestClose={closeModal}
-                    backdropStyle={styles.backdrop}
+        <View style={styles.container}>
+          <Layout
+            style={{ alignItems: "flex-end", backgroundColor: "#f2f2f2" }}
+          >
+            {isFilterVisible && (
+              <Modal
+                visible={isFilterVisible}
+                onBackdropPress={() => setFilterVisible(false)}
+                style={styles.filterWindowModal}
+                animationType="slide"
+              >
+                <Card
+                  disabled={true}
+                  style={{ width: width, borderRadius: 10 }}
                 >
-                    <Layout style={styles.modalContainer}>
-                        <Card style={styles.modalCard} disabled={true} >
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between',  alignItems: 'center', maxWidth: '100%'}}>
-                                    <Text style={styles.modalTitle}>{selectedForm?.plantilla}</Text>
-                                    <Button appearance='ghost' accessoryRight={closeIcon} onPress={closeModal} style={{alignContent:'center'}}/>
-                                </View>
-                                <View style={{maxHeight: height * 0.5}}>
-                                <ScrollViewIndicator>
-                                {selectedForm && Object.entries(selectedForm.data).map(([key, value]) => (
-                                    <Layout style={styles.containerRespuestas}>
-                                        <Text style={styles.key} key={key}>{`${key}`}</Text>
-                                        <ScrollView style={{ maxHeight: 200 }}>
-                                            {
-                                                value[0] === 'camara' ?
-                                                    <Image source={{ uri: `data:image/jpeg;base64,${value[1]}` }} style={{ width: 300, height: 300 }} resizeMode='center' /> :
-                                                    <Text style={styles.value}>{`${value[1]}`}</Text>
-                                            }
-                                        </ScrollView>
-                                    </Layout>
-                                ))}
-                                </ScrollViewIndicator>
-                                </View>
-                                <Layout style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10}}>
-                                <Button accessoryLeft={deleteIcon} status='danger' onPress={() => { setConfirmDelete([true, true]); setModalVisible(false) }}>
-                                    <Text>
-                                        Eliminar
-                                    </Text>
-                                </Button>
-                                <Button accessoryLeft={shareIcon} status='info' onPress={() => exportForm([selectedForm])}>
-                                    <Text>
-                                        Compartir
-                                    </Text>
-                                </Button>
-                                </Layout>
-                        </Card>
-                    </Layout>
-                </Modal>
+                  <Menu>
+                    {filters.map((item, index) =>
+                      item && item.value ? (
+                        <MenuItem
+                          key={item.value}
+                          title={item.value}
+                          onPress={() => {
+                            setFilterVisible(false);
+                            handleFilter({ row: index });
+                          }}
+                        />
+                      ) : null
+                    )}
+                  </Menu>
+                  <Button onPress={() => setFilterVisible(false)}>
+                    <Text>Cerrar</Text>
+                  </Button>
+                </Card>
+              </Modal>
+            )}
+
+            {isRangeMode ? (
+              <Layout
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  maxWidth: "90%",
+                  justifyContent: "center",
+                  backgroundColor: "#f3f3f3",
+                  paddingEnd: "10%",
+                }}
+              >
+                <TouchableOpacity
+                  onPress={() => setRangeModal(true)}
+                  style={styles.buttonDateStyle}
+                >
+                  <Layout>
+                    <Text style={styles.textDateStyle}>
+                      {"Inicio: " +
+                        (range.startDate
+                          ? configuredDateService.format(range.startDate)
+                          : "-") +
+                        ", Final: " +
+                        (range.endDate
+                          ? configuredDateService.format(range.endDate)
+                          : "-")}
+                    </Text>
+                  </Layout>
+                </TouchableOpacity>
+                <Button
+                  appearance="ghost"
+                  accessoryRight={closeIcon}
+                  onPress={() => {
+                    setIsRangeMode(false);
+                    setRange({});
+                    setForms(baseForms);
+                  }}
+                />
+              </Layout>
+            ) : (
+              <></>
+            )}
+            {isLastsMode ? (
+              <Layout
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  maxWidth: "90%",
+                  justifyContent: "center",
+                  backgroundColor: "#f3f3f3",
+                  paddingEnd: "10%",
+                }}
+              >
+                <Input
+                  placeholder="¿Cuantas respuestas desea?"
+                  value={lasts}
+                  onChangeText={(nextValue) => {
+                    setLasts(nextValue);
+                  }}
+                  style={{ width: "100%" }}
+                  keyboardType="numeric"
+                />
+                <Button
+                  appearance="ghost"
+                  accessoryRight={closeIcon}
+                  onPress={() => (setIsLastsMode(false), setLasts(null))}
+                />
+              </Layout>
+            ) : (
+              <></>
+            )}
+          </Layout>
+          {lasts != 0 ? (
+            <FlatList
+              data={Object.keys(groupedForms)}
+              renderItem={renderTypeItem}
+              keyExtractor={(item) => item.toString()}
+              contentContainerStyle={styles.listContainer}
+            />
+          ) : (
+            <></>
+          )}
+          <Modal visible={rangeModal} backdropStyle={styles.backdrop}>
+            <Layout style={styles.containerCalendar}>
+              <RangeCalendar
+                range={range}
+                onSelect={(nextrange) => setRange(nextrange)}
+              />
+              <View style={styles.buttonRangeContainer}>
+                <Button
+                  style={{ marginRight: "3%" }}
+                  status="info"
+                  onPress={() => setRangeModal(false)}
+                >
+                  <Text>Volver</Text>
+                </Button>
+                <Button
+                  style={{ marginLeft: "3%" }}
+                  onPress={() => {
+                    setRangeModal(false);
+                    setIsRangeMode(true);
+                    handleRange();
+                  }}
+                >
+                  <Text>Confirmar</Text>
+                </Button>
+              </View>
+            </Layout>
+          </Modal>
+          <Modal visible={confirmDelete[0]} backdropStyle={styles.backdrop}>
+            {renderDeleteModal()}
+          </Modal>
+
+          {isSelectionMode && (
+            <Layout style={styles.buttonContainer}>
+              <Button
+                status="danger"
+                style={styles.deleteButton}
+                onPress={() => setConfirmDelete([true, false])}
+                accessoryLeft={deleteIcon}
+                disabled={selectedForms.length === 0}
+              >
+                <Text style={styles.buttonText}>Eliminar</Text>
+              </Button>
+              <Button
+                status="info"
+                style={styles.shareButton}
+                accessoryLeft={shareIcon}
+                onPress={() =>
+                  exportForm(
+                    forms.filter((form) => selectedForms.includes(form.fecha))
+                  )
+                }
+                disabled={selectedForms.length === 0}
+              >
+                <Text style={styles.buttonText}>Compartir</Text>
+              </Button>
+            </Layout>
+          )}
+
+          {isSelectionMode && (
+            <View style={styles.buttonContainer}>
+              <Button
+                onPress={deselectAll}
+                accessoryLeft={ClearSelectionIcon}
+                style={styles.selectionButton}
+                disabled={selectedForms.length === 0}
+              >
+                <Text style={styles.buttonText}>Limpiar selección</Text>
+              </Button>
+              <Button
+                status="warning"
+                onPress={selectAll}
+                style={styles.selectAllButton}
+                accessoryLeft={SelectAllIcon}
+                disabled={selectedForms.length === forms.length}
+              >
+                <Text style={styles.buttonText}>Seleccionar todo</Text>
+              </Button>
             </View>
-        </>
-    )
+          )}
+
+          <Modal
+            visible={modalVisible}
+            transparent={true}
+            onRequestClose={closeModal}
+            backdropStyle={styles.backdrop}
+          >
+            <Layout style={styles.modalContainer}>
+              <Card style={styles.modalCard} disabled={true}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    maxWidth: "100%",
+                  }}
+                >
+                  <Text style={styles.modalTitle}>
+                    {selectedForm?.plantilla}
+                  </Text>
+                  <Button
+                    appearance="ghost"
+                    accessoryRight={closeIcon}
+                    onPress={closeModal}
+                    style={{ alignContent: "center" }}
+                  />
+                </View>
+                <View style={{ maxHeight: height * 0.5 }}>
+                  <ScrollViewIndicator>
+                    {selectedForm &&
+                      Object.entries(selectedForm.data).map(([key, value]) => (
+                        <Layout style={styles.containerRespuestas}>
+                          <Text style={styles.key} key={key}>{`${key}`}</Text>
+                          <ScrollView style={{ maxHeight: 200 }}>
+                            {value[0] === "camara" ? (
+                              <Image
+                                source={{
+                                  uri: `data:image/jpeg;base64,${value[1]}`,
+                                }}
+                                style={{ width: 300, height: 300 }}
+                                resizeMode="center"
+                              />
+                            ) : (
+                              <Text style={styles.value}>{`${value[1]}`}</Text>
+                            )}
+                          </ScrollView>
+                        </Layout>
+                      ))}
+                  </ScrollViewIndicator>
+                </View>
+                <Layout
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: 10,
+                  }}
+                >
+                  <Button
+                    accessoryLeft={deleteIcon}
+                    status="danger"
+                    onPress={() => {
+                      setConfirmDelete([true, true]);
+                      setModalVisible(false);
+                    }}
+                  >
+                    <Text>Eliminar</Text>
+                  </Button>
+                  <Button
+                    accessoryLeft={shareIcon}
+                    status="info"
+                    onPress={() => exportForm([selectedForm])}
+                  >
+                    <Text>Compartir</Text>
+                  </Button>
+                </Layout>
+              </Card>
+            </Layout>
+          </Modal>
+        </View>
+      </>
+    );
 }
 
 
