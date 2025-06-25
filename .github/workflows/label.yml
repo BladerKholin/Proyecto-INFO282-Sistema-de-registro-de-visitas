@@ -3,7 +3,7 @@ name: Run on Commit
 on:
   push:
     branches:
-      - main 
+      - prod
 jobs:
   simple-job:
     runs-on: ubuntu-latest
