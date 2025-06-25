@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Print commit message
-        run: echo "Commit realizado. GitHub Actions ejecutado correctamente.
+        run: echo "Commit realizado. GitHub Actions ejecutado correctamente."
