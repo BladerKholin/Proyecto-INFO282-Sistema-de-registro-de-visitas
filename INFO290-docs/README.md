@@ -9,3 +9,9 @@ Los archivos no presentes en estas carpetas se pueden encontrar en los siguiente
 
 El software de pruebas automatizas se encuentra en la carpeta [app_tester.](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/tree/prod/INFO290-docs/app_tester)</br>
 Un ejemplo de ejecución de las pruebas (caso de prueba de crear 15 formularios), se encuentra visible en [este enlace.](https://drive.google.com/file/d/1PRabIMa2BzyQrrGjBSVxp2GSw2kpmQFG/view?usp=sharing)
+
+La implementación de un registro de incidencias con Jira se puede ver en el siguiente enlace: https://patriciolobosojeda.atlassian.net/servicedesk/customer/portals
+
+Los registros de las implementaciones cruzadas están en los Github actions y quedó registro en el commit [Implementación Prettier, Asesoría G1](https://github.com/BladerKholin/Proyecto-INFO282-Sistema-de-registro-de-visitas/commit/ea25cc789f3168b38cd37cb2b03f9717a9a3bd95)
+
+El video sobre The Joel Test y Data Management en CMMI está en el siguiente enlace: https://youtu.be/W8X-Tf2XI7Q
